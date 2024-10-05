@@ -3,6 +3,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text.Json;
 using System.Net.Http.Headers;
 using Web2Lab1.Server.Services;
+using Web2Lab1.Server.Data;
+using Microsoft.EntityFrameworkCore;
+using Web2Lab1.Server.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -33,6 +38,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 builder.Services.AddHttpClient<AuthService>();
+
+builder.Services.AddScoped<ITicketService, TicketService>();
 
 var app = builder.Build();
 
