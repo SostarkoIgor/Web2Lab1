@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web2Lab1.Server", "Web2Lab1.Server\Web2Lab1.Server.csproj", "{79BC94E4-C88F-4B04-8720-5A6FC5BE8E5E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "web2lab1.client", "web2lab1.client\web2lab1.client.esproj", "{9366D729-0B15-4CFA-9D25-8BF1C9751D72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79BC94E4-C88F-4B04-8720-5A6FC5BE8E5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79BC94E4-C88F-4B04-8720-5A6FC5BE8E5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79BC94E4-C88F-4B04-8720-5A6FC5BE8E5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79BC94E4-C88F-4B04-8720-5A6FC5BE8E5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9366D729-0B15-4CFA-9D25-8BF1C9751D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9366D729-0B15-4CFA-9D25-8BF1C9751D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9366D729-0B15-4CFA-9D25-8BF1C9751D72}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9366D729-0B15-4CFA-9D25-8BF1C9751D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9366D729-0B15-4CFA-9D25-8BF1C9751D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9366D729-0B15-4CFA-9D25-8BF1C9751D72}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB31F3B2-9519-4CEF-A6A9-3D50E1BCD67F}
+	EndGlobalSection
+EndGlobal
