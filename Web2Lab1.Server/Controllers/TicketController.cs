@@ -17,8 +17,8 @@ namespace Web2Lab1.Server.Controllers
             this.ticketService = ticketService;
         }
 
-        [Authorize]
         [HttpPost("createTicket")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateTicket([FromBody] GenerateTicketDto ticketDto)
         {
             if (ticketDto == null || ticketDto.Vatin == null || ticketDto.LastName == null || ticketDto.FirstName == null
@@ -43,6 +43,22 @@ namespace Web2Lab1.Server.Controllers
         public async Task<ActionResult<int>> GetNumberOfGeneratedTickets()
         {
             return await ticketService.GetNumberOfGeneratedTicketsAsync();
+        }
+
+        
+        [HttpGet("ticketInfo/{ticketId:Guid}")]
+        public async Task<ActionResult<TicketInfoDto>> GetTicketInfo([FromRoute] Guid ticketId)
+        {
+            var ticket = await ticketService.GetTicketByTicketIdAsync(ticketId);
+            if (ticket == null) { return NotFound(); }
+            return Ok(new TicketInfoDto()
+            {
+                Id = ticket.Id,
+                FirstName = ticket.FirstName,
+                LastName = ticket.LastName,
+                Vatin = ticket.Vatin,
+                CreatedDate = ticket.CreatedAt
+            });
         }
     }
 }

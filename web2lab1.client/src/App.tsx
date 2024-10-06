@@ -1,56 +1,44 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react'
+import GenerateTicket from './Components/GenerateTicket'
+import axios from 'axios'
 
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
+const urlStart:string="https://localhost:7075"
+const App: React.FC = () => {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
-function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+  const [numberOfTickets, setNumberOfTickets] = React.useState<number>(0)
 
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
-
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
-
-    return (
-        <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
-        </div>
-    );
-
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
+  React.useEffect(() => {
+    async function fetchData() {
+      try {
+            let response = await axios.get(urlStart + '/api/Ticket/numberOfTickets')
+            setNumberOfTickets(response.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
+    fetchData()
+  },[])
+
+  return (
+    <div className="app">
+        {isAuthenticated ? (
+          <div className="user">
+            <p>Hello, <a className='userName'>{user?.name}</a>!</p>
+            <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+              Log out
+            </button>
+          </div>
+        ) : (
+          <button onClick={() => loginWithRedirect()}>Sign in</button>
+        )}
+
+        <p className='ticketCount'>Number of tickets: <a className='numberOfTickets'>{numberOfTickets}</a></p>
+        <GenerateTicket incrementNumberOfTickets={() => setNumberOfTickets(numberOfTickets + 1)} />
+    </div>
+  )
 }
 
-export default App;
+export default App

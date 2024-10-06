@@ -38,5 +38,10 @@ namespace Web2Lab1.Server.Services
         {
             return await _appDbContext.Tickets.CountAsync();
         }
+
+        public async Task<Ticket?> GetTicketByTicketIdAsync(Guid ticketId)
+        {
+            return await _appDbContext.Tickets.Where(a=>a.Id==ticketId).FirstOrDefaultAsync();
+        }
     }
 }
