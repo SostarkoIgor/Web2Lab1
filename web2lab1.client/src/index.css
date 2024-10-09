@@ -104,3 +104,12 @@ input{
   align-items: center;
   justify-content: center;
 }
+
+.ticketDetails{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useAuth0 } from '@auth0/auth0-react'
 
 
 const urlStart:string="https://localhost:7075"
@@ -11,7 +10,7 @@ const TicketForm = ({incrementNumberOfTickets} : {incrementNumberOfTickets: () =
   const [qrCode, setQrCode] = useState<string | null>(null)
   const [error, setError] = useState<string>('')
 
-  const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently  } = useAuth0()
+  //const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently  } = useAuth0()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -19,13 +18,22 @@ const TicketForm = ({incrementNumberOfTickets} : {incrementNumberOfTickets: () =
     setQrCode(null)
 
     try {
+      const m2mtoken=await axios.post("https://dev-sx10l5srw3t5xwff.us.auth0.com/oauth/token",
+        {
+          "client_id": "MTttxcYpTTg6QskWvcnSVXOjL9qyDFkY",
+          "client_secret": "vSRbwJ1YgjTvc6Bpvr19NDzztpEu2W2XEsUkteSAfbfg5eWC3u6Ej9MAonClre6Z",
+          "audience": "https://ticketapi",
+          "grant_type": "client_credentials"
+        }
+        
+      )
       const response = await axios.post(urlStart + '/api/Ticket/createTicket', {
         vatin,
         firstName,
         lastName
       }, {
         headers: {
-            Authorization: `Bearer ${await getAccessTokenSilently()}`
+            Authorization: `Bearer ${m2mtoken.data.access_token}`
         },
         responseType: 'blob'
       })

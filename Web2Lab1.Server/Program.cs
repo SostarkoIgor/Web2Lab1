@@ -30,10 +30,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultSignInScheme = "Cookies";
     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
 })
-// 2. Konfiguriraj Cookie autentifikaciju
 .AddCookie("Cookies")
-
-// 3. OpenID Connect za prijavu korisnika
 .AddOpenIdConnect("Auth0", options =>
 {
     options.Authority = $"https://{auth0Domain}";
@@ -50,8 +47,6 @@ builder.Services.AddAuthentication(options =>
     options.CallbackPath = new PathString("/callback");
     options.ClaimsIssuer = "Auth0";
 })
-
-// 4. JWT Bearer autentifikacija za API (OAuth2 Client Credentials)
 .AddJwtBearer(options =>
 {
     options.Authority = $"https://{auth0Domain}/";
