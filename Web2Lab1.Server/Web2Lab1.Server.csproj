@@ -10,6 +10,7 @@
     <UserSecretsId>e507dbdb-50c6-4fa9-af1b-04d7820e6f4b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
