@@ -11,9 +11,9 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Kopiranje nuget config i csproj datoteka
-COPY ["web2lab1.client/nuget.config", "web2lab1.client/"]
+#COPY ["web2lab1.client/nuget.config", "web2lab1.client/"]
 COPY ["Web2Lab1.Server/Web2Lab1.Server.csproj", "Web2Lab1.Server/"]
-COPY ["web2lab1.client/web2lab1.client.csproj", "web2lab1.client/"]  # Pravi naziv csproj datoteke
+#COPY ["web2lab1.client/web2lab1.client.csproj", "web2lab1.client/"]  # Pravi naziv csproj datoteke
 
 # Restore dependencies
 RUN dotnet restore "./Web2Lab1.Server/Web2Lab1.Server.csproj"
