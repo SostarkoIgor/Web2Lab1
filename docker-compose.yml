@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  web2lab1.server:
+    image: ${DOCKER_REGISTRY-}web2lab1server
+    build:
+      context: .
+      dockerfile: Web2Lab1.Server/Dockerfile
