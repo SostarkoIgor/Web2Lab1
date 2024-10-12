@@ -24,6 +24,5 @@ RUN dotnet publish "./Web2Lab1.Server.csproj" -c $BUILD_CONFIGURATION -o /app/pu
 
 FROM base AS final
 WORKDIR /app
-COPY wwwroot /app/wwwroot
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Web2Lab1.Server.dll"]
