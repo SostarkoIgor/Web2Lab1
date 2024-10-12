@@ -4,9 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <SpaRoot>..\web2lab1.client</SpaRoot>
-    <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
-    <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
+    <!-- <SpaRoot>..\web2lab1.client</SpaRoot> -->
+    <!-- <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand> -->
+    <!-- <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl> -->
     <UserSecretsId>e507dbdb-50c6-4fa9-af1b-04d7820e6f4b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
@@ -34,9 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\web2lab1.client\web2lab1.client.esproj">
+    <!-- <ProjectReference Include="..\web2lab1.client\web2lab1.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
+    </ProjectReference> -->
   </ItemGroup>
 
   <ItemGroup>
