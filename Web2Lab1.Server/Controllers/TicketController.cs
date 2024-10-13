@@ -28,7 +28,7 @@ namespace Web2Lab1.Server.Controllers
             }
             var id = await ticketService.GenerateTicketAsync(ticketDto.Vatin, ticketDto.FirstName, ticketDto.LastName);
 
-            string url = $"https://dev-sx10l5srw3t5xwff.us.auth0.com/ticket/{id}";
+            string url = $"https://web2lab1-frontend.onrender.com/ticket/{id}";
             using var qrGenerator = new QRCodeGenerator();
             using var qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
             using (PngByteQRCode qrCode = new (qrCodeData))
