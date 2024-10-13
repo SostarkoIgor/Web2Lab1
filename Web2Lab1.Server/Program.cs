@@ -82,7 +82,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://web2lab1-frontend.onrender.com/")
+            policy.WithOrigins("https://web2lab1-frontend.onrender.com")
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();
@@ -109,8 +109,8 @@ app.UseHttpsRedirection();
 
 app.UseCors();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
