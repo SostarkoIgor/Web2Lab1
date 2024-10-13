@@ -45,7 +45,7 @@ namespace Web2Lab1.Server.Controllers
             return await ticketService.GetNumberOfGeneratedTicketsAsync();
         }
 
-        [Authorize]
+        
         [HttpGet("ticketInfo/{ticketId:Guid}")]
         public async Task<ActionResult<TicketInfoDto>> GetTicketInfo([FromRoute] Guid ticketId)
         {
