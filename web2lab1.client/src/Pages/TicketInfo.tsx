@@ -8,7 +8,7 @@ interface Ticket {
     vatin: string;
     firstName: string;
     lastName: string;
-    createdAt: string;
+    createdDate: string;
 }
 
 
@@ -63,7 +63,7 @@ const TicketInfo: React.FC<{ ticketId: string }> = ({ ticketId }) => {
                     <p><strong>VATIN:</strong> {ticket.vatin}</p>
                     <p><strong>First Name:</strong> {ticket.firstName}</p>
                     <p><strong>Last Name:</strong> {ticket.lastName}</p>
-                    <p><strong>Created At:</strong> {new Date(ticket.createdAt).toLocaleString()}</p>
+                    <p><strong>Created At:</strong> {new Date(ticket.createdDate).toLocaleString()}</p>
                     <button onClick={() => navigate('/')}>Start page</button>
                 </div>
             ) : (
