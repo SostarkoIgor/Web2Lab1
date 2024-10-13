@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+//import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -12,7 +12,7 @@ const clientId="FwK0bpM82iAZTgkZeRZQx0koeuXTPELF"
 createRoot(document.getElementById('root')!).render(
   <Auth0Provider domain={domain} clientId={clientId}
     authorizationParams={{ redirect_uri: window.location.origin, response_type: 'code', audience: "https://ticketapi" }}>
-    <StrictMode>
+    {/* <StrictMode> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
@@ -20,6 +20,6 @@ createRoot(document.getElementById('root')!).render(
           <Route path="*" element={<App />} />
         </Routes>
       </BrowserRouter>
-    </StrictMode>
+    {/* </StrictMode> */}
   </Auth0Provider>
 )
