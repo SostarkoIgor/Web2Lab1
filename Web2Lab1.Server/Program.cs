@@ -7,6 +7,7 @@ using Web2Lab1.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Web2Lab1.Server.Interfaces;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.HttpsPolicy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,6 +68,11 @@ builder.Services.AddAuthentication(options =>
             return keys.Keys;
         }
     };
+});
+
+builder.Services.Configure<HttpsRedirectionOptions>(options =>
+{
+    options.HttpsPort = 443;
 });
 
 builder.Services.AddAuthorization();
