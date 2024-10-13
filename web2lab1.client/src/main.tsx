@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/ticket/:ticketId" element={<TicketInfo ticketId={window.location.pathname.split("/")[2]}/>} />
-          {/* <Route path="*" element={<App />} /> */}
+          <Route path="*" element={<App />} />
         </Routes>
       </BrowserRouter>
     {/* </StrictMode> */}
