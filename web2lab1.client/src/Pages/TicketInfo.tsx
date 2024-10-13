@@ -11,6 +11,8 @@ interface Ticket {
     createdAt: string;
 }
 
+
+const source="https://web2lab1-0aid.onrender.com"
 const TicketInfo: React.FC<{ ticketId: string }> = ({ ticketId }) => {
     const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently  } = useAuth0();
     const [ticket, setTicket] = useState<Ticket | null>(null);
@@ -25,7 +27,7 @@ const TicketInfo: React.FC<{ ticketId: string }> = ({ ticketId }) => {
             }
 
             try {
-                const response = await axios.get(`https://localhost:7075/api/Ticket/ticketInfo/${ticketId}`, {
+                const response = await axios.get(source+`/api/Ticket/ticketInfo/${ticketId}`, {
                     headers: {
                         Authorization: `Bearer ${await getAccessTokenSilently()}`,
                     },

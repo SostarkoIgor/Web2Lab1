@@ -82,7 +82,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://localhost:5173")
+            policy.WithOrigins("https://web2lab1-frontend.onrender.com/")
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();

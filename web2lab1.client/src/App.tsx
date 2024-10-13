@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import GenerateTicket from './Components/GenerateTicket'
 import axios from 'axios'
 
-const urlStart:string="https://localhost:7075"
+const urlStart:string="https://web2lab1-0aid.onrender.com"
 const App: React.FC = () => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
