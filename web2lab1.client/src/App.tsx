@@ -35,7 +35,7 @@ const App: React.FC = () => {
           <button onClick={() => loginWithRedirect()}>Sign in</button>
         )}
 
-        <p className='ticketCount'>Number of tickets: <a className='numberOfTickets'>{numberOfTickets}</a></p>
+        <p className='ticketCount'>Number of tickets (might take a bit to load): <a className='numberOfTickets'>{numberOfTickets}</a></p>
         <GenerateTicket incrementNumberOfTickets={() => setNumberOfTickets(numberOfTickets + 1)} />
     </div>
   )
