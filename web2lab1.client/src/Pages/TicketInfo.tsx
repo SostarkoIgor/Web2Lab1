@@ -47,7 +47,7 @@ const TicketInfo: React.FC<{ ticketId: string }> = ({ ticketId }) => {
             <div className='app'>
                 <h2>You need to be logged in to view ticket details</h2>
                 <p>If logged in wait a bit for this page to load</p>
-                <button onClick={() => loginWithRedirect()}>Login</button>
+                <button onClick={() => loginWithRedirect({ appState: { returnTo: window.location.pathname } })}>Login</button>
             </div>
         );
     }
