@@ -5,14 +5,12 @@ import './index.css'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import TicketInfo from './Pages/TicketInfo.tsx'
-import { useNavigate } from "react-router-dom"
 
 const domain="dev-sx10l5srw3t5xwff.us.auth0.com"
 const clientId="FwK0bpM82iAZTgkZeRZQx0koeuXTPELF"
 
 const onRedirectCallback = (appState : any) => {
-  const navigate = useNavigate()
-  navigate(appState?.returnTo || window.location.pathname);
+  window.location.href = appState?.returnTo || window.location.pathname
 }
 
 createRoot(document.getElementById('root')!).render(
