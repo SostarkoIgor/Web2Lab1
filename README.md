@@ -1,4 +1,4 @@
-# Prva labaratorijska viježba iz kolegija Napredni razvoj programske potpore za web
+# Prva labaratorijska vježba iz kolegija Napredni razvoj programske potpore za web
 Projekt za Generiranje QR Kodova s Autentifikacijom i Autorizacijom
 
 Ovaj projekt implementira aplikaciju za generiranje QR kodova i prikaz podataka o ulaznicama.
@@ -32,15 +32,15 @@ Aplikacija će služiti za generiranje QR kodova za određenu namjenu (npr. ulaz
 
 Rješenje mora imati sljedeće funkcionalnosti:
 
-    Javno dostupna početna stranica koja prikazuje broj dosad generiranih ulaznica.
-    Pristupna točka (engl. endpoint) za generiranje ulaznice.
+1. Javno dostupna početna stranica koja prikazuje broj dosad generiranih ulaznica.
+2. Pristupna točka (engl. endpoint) za generiranje ulaznice.
         Pristupna točka u tijelu zahtjeva prima json sa svojstvima vatin, firstName, lastName, koji predstavljaju OIB osobe ili tvrtke koja "kupuje" ulaznicu te ime i prezime na koga će ulaznica glasiti.
         Za jedan OIB se smiju generirati do (uključivo) 3 ulaznice.
         Identifikator ulaznice ne smije biti numerička vrijednosti, već npr. UUID iz PostgreSQL-a. Za svaku generiranu ulaznicu u bazi podataka osim prethodno navedenih podataka pospremiti i vrijeme kad je ulaznica kreirana.
         Rezultat uspješnog poziva je slika s QR kodom koji sadrži URL stranice određene identifikatorom ulaznici na kojoj se mogu doznati ostale informacije o ulaznici. U URL-u se ne smiju nalaziti podaci o OIB-u, imenu ili prezimenu, već samo identifikator ulaznice.
         U slučaju pogreške vratiti status 400 ili 500 s odgovarajućim opisom pogreške. Status 400 se treba vratiti ako ulazni json ne sadrži sve tražene podatke ili su za navedeni OIB već kupljene 3 ulaznice, pa nije dozvoljeno generirati dodatne ulaznice.
         Pristupna točka mora koristiti autorizacijski mehanizam OAuth2 Client Credentials (machine-to-machine) koji nije vezan za konkretnog korisnika, već za pojedinu aplikaciju. Detaljnije za ovaj mehanizam i Auth0 se može naći na https://auth0.com/blog/using-m2m-authorization
-    Stranica koja je jednoznačno određena identifikatorom ulaznice i prikazuje podatke o OIB-u, imenu, prezimenu te vremenu nastanka ulaznice.
+3. Stranica koja je jednoznačno određena identifikatorom ulaznice i prikazuje podatke o OIB-u, imenu, prezimenu te vremenu nastanka ulaznice.
         Pristup ovoj stranici imaju samo prijavljeni korisnici.
         Na stranici ispisati ime trenutno prijavljenog korisnika koristeći OpenId Connect protokol.
 
@@ -48,10 +48,10 @@ Upravljanje korisnicima odvija se korištenjem protokola OAuth2 i OpenId Connect
 
 Aplikaciju postaviti u oblak (preporuča se besplatna opcija na Renderu), a kao odgovor na ovo pitanje isporučiti redom:
 
-    adresu javno dostupnog git repozitorija s izvornim kodom aplikacije (repozitorij postaviti javnim tek nakon isteka roka za predaju projekta)
-    adresu početne stranice aplikacije
-    adresu pristupne točke za kreiranje ulaznice te pristupne podatke za aplikaciju koja će pozivati generiranje ulaznica: clientid, clientsecret, issuerBaseUrl/authority (npr. https://fer-web2.eu.auth0.com)
-    testni korisnički račun s lozinkom s kojom se može otvoriti stranica s detaljima ulaznice
+1. adresu javno dostupnog git repozitorija s izvornim kodom aplikacije (repozitorij postaviti javnim tek nakon isteka roka za predaju projekta)
+2. adresu početne stranice aplikacije
+3. adresu pristupne točke za kreiranje ulaznice te pristupne podatke za aplikaciju koja će pozivati generiranje ulaznica: clientid, clientsecret, issuerBaseUrl/authority (npr. https://fer-web2.eu.auth0.com)
+4. testni korisnički račun s lozinkom s kojom se može otvoriti stranica s detaljima ulaznice
 
 Zadatak ne postavlja nikakva ograničenje po pitanju programskog jezika i radnog okvira, ali se preporuča Node.js za koji je provjereno se da u njemu rješenje može implementirati i isporučiti na Render.
 
